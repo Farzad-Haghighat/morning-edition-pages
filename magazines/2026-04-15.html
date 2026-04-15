@@ -4,159 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Morning Edition — 2026-04-15</title>
-  <meta name="description" content="Morning Edition: curated daily magazine for Farzad — AI tools, creative software, dev tools, privacy, weird science, and actionable stories.">
+  <meta name="description" content="Morning Edition: curated daily magazine for Farzad.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --paper: #f7f4ee;
-      --ink: #171717;
-      --muted: #57534e;
-      --line: rgba(23,23,23,.12);
-      --cream: #f3ede3;
-      --night: #121826;
-      --night-ink: #f5f7fb;
-      --rose: #f8e1df;
-      --green: #e7f1e8;
-      --blue: #e7eef8;
-      --gold: #b88912;
-      --shadow: 0 18px 48px rgba(0,0,0,.08);
+    :root{
+      --paper:#f7f4ee;--ink:#171717;--muted:#5c5852;--line:rgba(23,23,23,.12);
+      --blue:#eef4fb;--rose:#f8e6e4;--green:#edf6ee;--cream:#f6efe4;--night:#121826;--nightink:#f5f7fb;
+      --shadow:0 14px 40px rgba(0,0,0,.08);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Vazirmatn', system-ui, sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 2;
-      font-size: 24px;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
-    .topbar {
-      position: sticky; top: 0; z-index: 30;
-      background: rgba(247,244,238,.86); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      padding: 8px 14px;
-      font-size: 16px;
-    }
-    .topbar__inner { max-width: 1280px; margin: 0 auto; display:flex; gap:8px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-    .topbar nav { display:flex; gap:10px 12px; flex-wrap:wrap; }
-    .topbar a { text-decoration: none; border-bottom: 1px solid transparent; line-height: 1.35; }
-    .topbar a:hover { border-color: currentColor; }
-    .spread {
-      padding: 64px 22px;
-      border-bottom: 1px solid var(--line);
-    }
-    .spread__inner { max-width: 1280px; margin: 0 auto; }
-    .hero {
-      background: linear-gradient(180deg, #faf7f1 0%, #ece2d2 100%);
-    }
-    .hero-grid, .two-col, .one-plus-art {
-      display: grid; gap: 34px; align-items: start;
-    }
-    .hero-grid { grid-template-columns: 1.25fr .85fr; }
-    .two-col { grid-template-columns: 1fr 1fr; }
-    .one-plus-art { grid-template-columns: 1.1fr .9fr; }
-    .eyebrow {
-      font-size: 20px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; font-weight: 800; margin-bottom: 12px;
-    }
-    .display {
-      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
-      font-size: clamp(62px, 10vw, 148px);
-      line-height: .95;
-      margin: 0 0 20px;
-      letter-spacing: -.02em;
-    }
-    .deck {
-      font-size: clamp(28px, 2.7vw, 42px);
-      max-width: 24ch;
-      margin: 0 0 26px;
-      line-height: 1.65;
-    }
-    .meta { font-size: 20px; color: var(--muted); display:flex; gap:12px; flex-wrap:wrap; }
-    .hero-card {
-      background: rgba(255,255,255,.55); border: 1px solid rgba(23,23,23,.08); box-shadow: var(--shadow);
-      padding: 24px; align-self: end;
-    }
-    .hero-card h3 { font-family: 'Lalezar', 'Vazirmatn', sans-serif; font-size: 46px; line-height: 1.1; margin: 0 0 10px; }
-    .hero-card p { font-size: 24px; margin: 0; }
-    .story-title {
-      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
-      font-size: clamp(40px, 5vw, 78px);
-      line-height: 1.15;
-      margin: 0 0 16px;
-    }
-    .story-copy p, .story-copy li, .quote-box p {
-      font-size: clamp(24px, 2.2vw, 34px);
-      margin: 0 0 18px;
-      max-width: 34ch;
-    }
-    .story-copy ul { margin: 0 0 20px; padding-right: 22px; }
-    .flag {
-      display: inline-flex; align-items:center; gap:10px; padding:10px 18px; border-radius:999px; font-size:18px; font-weight:800; margin-bottom:18px;
-    }
-    .flag--direct { background:#111; color:#fff; }
-    .flag--watch { background:#fff; border:2px solid #111; }
-    .number {
-      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
-      font-size: clamp(70px, 13vw, 180px); line-height: .85; opacity:.18; margin-bottom: 12px;
-    }
-    .panel {
-      padding: 28px; border:1px solid var(--line); background: rgba(255,255,255,.62); box-shadow: var(--shadow);
-    }
-    .midnight { background: linear-gradient(180deg, var(--night) 0%, #0b0f18 100%); color: var(--night-ink); }
-    .midnight .panel { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); box-shadow:none; }
-    .midnight .meta, .midnight .caption, .midnight .source-note { color: rgba(245,247,251,.72); }
-    .rose { background: linear-gradient(180deg, #fffaf9 0%, #f6dfdb 100%); color: #161616; }
-    .blue { background: linear-gradient(180deg, #f5f9ff 0%, #dfeaf8 100%); color: #161616; }
-    .green { background: linear-gradient(180deg, #f3faf3 0%, #dcebdc 100%); color: #161616; }
-    .cream { background: linear-gradient(180deg, #fcfaf6 0%, #eee3d2 100%); color: #161616; }
-    .painting { background: linear-gradient(180deg, #f6f1ff 0%, #e5dcfb 100%); color: #161616; }
-    .music { background: linear-gradient(180deg, #f3f9ef 0%, #dcead5 100%); color: #161616; }
-    .rose .story-title, .blue .story-title, .green .story-title, .cream .story-title, .painting .story-title, .music .story-title {
-      color: #141414;
-    }
-    .rose .story-copy p, .blue .story-copy p, .green .story-copy p, .cream .story-copy p, .painting .story-copy p, .music .story-copy p,
-    .rose .story-copy li, .blue .story-copy li, .green .story-copy li, .cream .story-copy li, .painting .story-copy li, .music .story-copy li {
-      color: #222;
-    }
-    .quote-box {
-      border-right: 5px solid currentColor; padding: 18px 20px; margin: 24px 0; background: rgba(255,255,255,.62);
-    }
-    .quote-box strong { display:block; font-size:20px; margin-bottom:10px; opacity:.8; }
-    .source-row {
-      display:flex; gap:14px; flex-wrap:wrap; margin-top: 20px; font-size: 20px; font-weight: 800;
-    }
-    .source-row a { text-decoration:none; border-bottom: 2px solid currentColor; }
-    .caption, .source-note { font-size: 19px; color: var(--muted); }
-    .art {
-      border: 1px solid var(--line); background: rgba(255,255,255,.6); box-shadow: var(--shadow); overflow:hidden;
-    }
-    .art img { width: 100%; height: 100%; object-fit: cover; }
-    .art--portrait { aspect-ratio: 4 / 5; }
-    .art--landscape { aspect-ratio: 16 / 10; }
-    .text-card { padding: 28px; border:1px solid var(--line); background: rgba(255,255,255,.5); box-shadow: var(--shadow); }
-    .dropcap p:first-of-type::first-letter {
-      float: right; font-family: 'Lalezar', 'Vazirmatn', sans-serif; font-size: 4.2em; line-height: .8; padding-left: 12px; padding-top: 6px;
-    }
-    .music, .painting { background: linear-gradient(180deg, #f8f8f8 0%, #ececec 100%); }
-    @media (max-width: 980px) {
-      body { font-size: 22px; }
-      .hero-grid, .two-col, .one-plus-art { grid-template-columns: 1fr; }
-      .spread { padding: 44px 16px; }
-      .display { font-size: clamp(54px, 15vw, 102px); }
-      .deck { font-size: clamp(24px, 6.4vw, 34px); }
-      .story-title { font-size: clamp(38px, 10vw, 64px); }
-      .story-copy p, .story-copy li, .quote-box p { max-width: none; font-size: clamp(23px, 5.2vw, 30px); }
-      .topbar { padding: 6px 10px; font-size: 15px; }
-      .topbar__inner { gap: 6px; }
-      .topbar nav { gap: 8px 10px; }
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Vazirmatn',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.95;font-size:24px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    img{display:block;max-width:100%} a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:40;background:rgba(247,244,238,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:7px 12px;font-size:15px}
+    .topbar__inner{max-width:1100px;margin:0 auto;display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .topbar nav{display:flex;gap:8px 10px;flex-wrap:wrap}.topbar a{text-decoration:none;border-bottom:1px solid transparent}.topbar a:hover{border-color:currentColor}
+    .spread{padding:54px 18px;border-bottom:1px solid var(--line)} .spread__inner{max-width:1100px;margin:0 auto}
+    .hero{background:linear-gradient(180deg,#fbf7f0 0%,#ebdfce 100%)} .blue{background:linear-gradient(180deg,#f5f9ff 0%,#dfeaf8 100%)} .rose{background:linear-gradient(180deg,#fffaf9 0%,#f6dfdb 100%)} .green{background:linear-gradient(180deg,#f3faf3 0%,#dcebdc 100%)} .cream{background:linear-gradient(180deg,#fcfaf6 0%,#eee3d2 100%)} .night{background:linear-gradient(180deg,var(--night) 0%,#0b0f18 100%);color:var(--nightink)} .purple{background:linear-gradient(180deg,#f6f1ff 0%,#e5dcfb 100%)} .mint{background:linear-gradient(180deg,#f3f9ef 0%,#dcead5 100%)}
+    .eyebrow{font-size:18px;text-transform:uppercase;letter-spacing:.08em;opacity:.74;font-weight:800;margin-bottom:10px}
+    .display{font-family:'Lalezar','Vazirmatn',sans-serif;font-size:clamp(58px,10vw,132px);line-height:.95;margin:0 0 18px;letter-spacing:-.02em}
+    .deck{font-size:clamp(26px,2.7vw,38px);max-width:24ch;margin:0 0 18px}
+    .meta{font-size:19px;color:var(--muted)}
+    .story{max-width:780px;margin:0 auto}.story-title{font-family:'Lalezar','Vazirmatn',sans-serif;font-size:clamp(38px,5vw,72px);line-height:1.12;margin:0 0 12px}
+    .flag{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;font-size:17px;font-weight:800;margin-bottom:16px}.flag--direct{background:#111;color:#fff}.flag--watch{background:#fff;border:2px solid #111;color:#111}
+    .story-image{margin:16px 0 20px;border:1px solid var(--line);background:rgba(255,255,255,.6);box-shadow:var(--shadow);overflow:hidden}.story-image img{width:100%;height:auto;object-fit:cover}
+    .story-copy p,.story-copy li{font-size:clamp(24px,2.2vw,32px);margin:0 0 16px}.story-copy ul{padding-right:22px;margin:0 0 16px}
+    .quote-box{border-right:5px solid currentColor;padding:16px 18px;margin:22px 0;background:rgba(255,255,255,.64)} .quote-box strong{display:block;font-size:18px;margin-bottom:8px;opacity:.82}
+    .source-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;font-size:19px;font-weight:800}.source-row a{text-decoration:none;border-bottom:2px solid currentColor}
+    .section-title{font-family:'Lalezar','Vazirmatn',sans-serif;font-size:clamp(42px,5vw,78px);line-height:1.08;margin:0 0 18px}
+    .subsection{padding-top:26px;margin-top:26px;border-top:1px solid var(--line)} .subsection:first-of-type{padding-top:0;margin-top:0;border-top:0}
+    .note{font-size:19px;color:var(--muted)}
+    .night .quote-box{background:rgba(255,255,255,.08)} .night .meta,.night .note{color:rgba(245,247,251,.76)} .night .flag--watch{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+    @media (max-width:980px){body{font-size:22px}.spread{padding:42px 14px}.display{font-size:clamp(48px,16vw,94px)} .deck{font-size:clamp(24px,6vw,32px)} .story-title{font-size:clamp(36px,10vw,58px)} .story-copy p,.story-copy li{font-size:clamp(23px,5.2vw,29px)}}
   </style>
 </head>
 <body>
@@ -164,304 +44,192 @@
     <div class="topbar__inner">
       <div><strong>Morning Edition</strong> — ۱۵ آوریل ۲۰۲۶</div>
       <nav>
-        <a href="#s1">ادوبی</a>
-        <a href="#s2">حریم خصوصی</a>
-        <a href="#s3">Walmart</a>
-        <a href="#s4">ماهواره</a>
-        <a href="#s5">دیتاسنتر</a>
-        <a href="#s6">Anthropic</a>
-        <a href="#s7">رباتیک</a>
-        <a href="#s8">امنیت</a>
-        <a href="#enews">ENews</a>
-        <a href="#painting">نقاشی</a>
-        <a href="#music">موسیقی</a>
+        <a href="#s1">ادوبی</a><a href="#s2">حریم خصوصی</a><a href="#s3">Walmart</a><a href="#s4">ماهواره</a><a href="#s5">دیتاسنتر</a><a href="#s6">Anthropic</a><a href="#s7">رباتیک</a><a href="#s8">امنیت</a><a href="#enews">ENews</a><a href="#painting">نقاشی</a><a href="#music">موسیقی</a>
       </nav>
     </div>
   </header>
 
   <section class="spread hero">
-    <div class="spread__inner hero-grid">
-      <div>
-        <div class="eyebrow">curated for Farzad</div>
-        <h1 class="display">صبح‌نامه‌ای برای<br>ذهنِ فنی</h1>
-        <p class="deck">گلچینی از Hacker News، صفحه‌ی اول The Verge، صفحه‌ی اول BBC فارسی و منابع مکمل — با تمرکز روی ابزارهای AI، نرم‌افزار خلاقه، dev tools، حریم خصوصی، علم عجیب و خبرهایی که واقعاً به کارت می‌آیند.</p>
-        <div class="meta">
-          <span>توضیح مهم: این نسخه با متن درشت‌تر، فاصله‌ی بیشتر و commentary کمتر بازطراحی شده</span>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3>امروز چه چیزهایی مهم‌ترند؟</h3>
-        <p>یک: agentic creative tools دارند جدی می‌شوند. دو: حریم خصوصی در ایران خبرِ کاربردی است، نه انتزاعی. سه: داستان AI فقط مدل نیست؛ برق، ماهواره، سرمایه و امنیت هم هست.</p>
-      </div>
+    <div class="spread__inner story">
+      <div class="eyebrow">curated for Farzad</div>
+      <h1 class="display">صبح‌نامه‌ای برای<br>ذهنِ فنی</h1>
+      <p class="deck">نسخه‌ی نهایی امروز: گزارش منبع‌محورتر، عکس بلافاصله زیر هر عنوان، و ENews واقعی با ساختار جداگانه.</p>
+      <p class="meta">تمرکز امروز: AI tools، privacy، infrastructure، weird science، و چیزهایی که واقعاً کاربرد دارند.</p>
     </div>
   </section>
 
-  <section class="spread midnight" id="s1">
-    <div class="spread__inner one-plus-art">
-      <div>
-        <div class="number">01</div>
-        <div class="flag flag--direct">مستقیم به درد تو می‌خورد</div>
-        <h2 class="story-title">ادوبی دستیار Firefly را از «افکت» به سمت «همکار اجرایی» هل می‌دهد</h2>
-        <div class="story-copy">
-          <p>ادوبی می‌گوید دستیار Firefly می‌تواند بین چند اپ Creative Cloud حرکت کند، workflow بچیند و کارهای چندمرحله‌ای را جلو ببرد. این برای تو مهم است چون دقیقاً به تقاطع AI tools و creative software می‌خورد؛ جایی که نرم‌افزار دیگر فقط ابزار نیست و کم‌کم نقش همکار را بازی می‌کند.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از TechCrunch</strong>
-          <p>«The assistant can suggest actions, orchestrate between actions and apps, and execute workflows, but leaves room for users to interject at any time.»</p>
-        </div>
-        <div class="story-copy">
-          <p>برداشت کوتاه: این یکی از آن خبرهایی است که باید بیشتر از hype تصویری جدی گرفته شود، چون friction واقعیِ کار را هدف گرفته است.</p>
-        </div>
-        <div class="source-row">
-          <a href="https://techcrunch.com/2026/04/15/adobes-new-firefly-ai-assistant-can-use-creative-cloud-apps-to-complete-tasks/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
-        </div>
-      </div>
-      <div class="art art--landscape"><img src="https://techcrunch.com/wp-content/uploads/2026/04/Adobe-Firefly-Innovations-Visual-Asset.jpeg?resize=1200,675" alt="Adobe Firefly"></div>
+  <section class="spread night" id="s1"><div class="spread__inner story">
+    <div class="flag flag--direct">مستقیم به درد تو می‌خورد</div>
+    <h2 class="story-title">ادوبی Firefly را از یک قابلیت AI به سمت لایه‌ی اجراییِ خلاقه می‌برد</h2>
+    <div class="story-image"><img src="https://techcrunch.com/wp-content/uploads/2026/04/Adobe-Firefly-Innovations-Visual-Asset.jpeg?resize=1200,675" alt="Adobe Firefly"></div>
+    <div class="story-copy">
+      <p>ادوبی می‌گوید دستیار Firefly می‌تواند بین چند اپ Creative Cloud حرکت کند، workflow بچیند و کارهای چندمرحله‌ای را جلو ببرد. برای تو، این خبر مهم است چون دقیقاً به تقاطع AI tools و creative software می‌خورد.</p>
+      <div class="quote-box"><strong>نقل از TechCrunch</strong><p>«The assistant can suggest actions, orchestrate between actions and apps, and execute workflows, but leaves room for users to interject at any time.»</p></div>
+      <div class="quote-box"><strong>نقل از Ars Technica</strong><p>«You could imprecisely but defensibly call it a sort of ‘Claude Code for creative apps.’»</p></div>
+      <p>جمع‌بندی کوتاه: این خبر بیشتر از یک feature نمایشی ارزش دارد، چون friction واقعیِ کار خلاقه را هدف گرفته است.</p>
     </div>
-  </section>
+    <div class="source-row"><a href="https://techcrunch.com/2026/04/15/adobes-new-firefly-ai-assistant-can-use-creative-cloud-apps-to-complete-tasks/" target="_blank">TechCrunch</a><a href="https://arstechnica.com/ai/2026/04/adobe-takes-creative-cloud-into-claude-code-esque-territory/" target="_blank">Ars Technica</a></div>
+  </div></section>
 
-  <section class="spread rose" id="s2">
-    <div class="spread__inner one-plus-art">
-      <div>
-        <div class="flag flag--direct">این یکی واقعاً برای تو کاربردی است</div>
-        <h2 class="story-title">گزارش BBC فارسی درباره‌ی بازرسی گوشی‌ها، خبرِ روزمره‌ی حریم خصوصی است</h2>
-        <div class="story-copy">
-          <p>BBC فارسی از افزایش روایت‌های مربوط به ایست‌های بازرسی، ترس از بازرسی تلفن همراه، اختلال اینترنت و فشار روانی نوشته است. این داستان برای تو صرفاً خبر سیاسی نیست؛ یک reminder عملی برای hygiene دیجیتال است.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از BBC فارسی</strong>
-          <p>«در بسیاری از روایت‌ها، بازرسی تلفن همراه در این ایست‌های بازرسی، به‌عنوان یکی از نگرانی‌های اصلی نویسندگان پیام‌ها مطرح شده است.»</p>
-        </div>
-        <div class="story-copy">
-          <p>برداشت کوتاه: این را باید در دسته‌ی «همین امروز بهش فکر کن» گذاشت. قفل‌صفحه، محتوای حساس، backup و کم‌کردن ردپای روی دستگاه، ناگهان اهمیت بیشتری پیدا می‌کنند.</p>
-        </div>
-        <div class="source-row">
-          <a href="https://www.bbc.com/persian/articles/c86eeppz6e3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC فارسی</a>
-        </div>
-      </div>
-      <div>
-        <div class="art art--landscape"><img src="https://ichef.bbci.co.uk/news/1024/branded_persian/95f5/live/a3e592c0-381b-11f1-87a9-4117efae0ff4.jpg" alt="BBC Persian privacy story"></div>
-        <p class="caption">تصویر از گزارش BBC فارسی</p>
-      </div>
+  <section class="spread rose" id="s2"><div class="spread__inner story">
+    <div class="flag flag--direct">این یکی واقعاً برای تو کاربردی است</div>
+    <h2 class="story-title">گزارش BBC فارسی درباره‌ی بازرسی گوشی‌ها، خبرِ روزمره‌ی حریم خصوصی است</h2>
+    <div class="story-image"><img src="https://ichef.bbci.co.uk/news/1024/branded_persian/95f5/live/a3e592c0-381b-11f1-87a9-4117efae0ff4.jpg" alt="BBC Persian privacy story"></div>
+    <div class="story-copy">
+      <p>BBC فارسی از افزایش روایت‌های مربوط به ایست‌های بازرسی، ترس از بازرسی تلفن همراه، اختلال اینترنت و فشار روانی نوشته است. این برای تو صرفاً خبر سیاسی نیست؛ reminder عملی برای hygiene دیجیتال است.</p>
+      <div class="quote-box"><strong>نقل از BBC فارسی</strong><p>«در بسیاری از روایت‌ها، بازرسی تلفن همراه در این ایست‌های بازرسی، به‌عنوان یکی از نگرانی‌های اصلی نویسندگان پیام‌ها مطرح شده است.»</p></div>
+      <p>جمع‌بندی کوتاه: این را باید در دسته‌ی «همین امروز بهش فکر کن» گذاشت؛ نه در دسته‌ی «بعداً می‌خوانم».</p>
     </div>
-  </section>
+    <div class="source-row"><a href="https://www.bbc.com/persian/articles/c86eeppz6e3o?at_medium=RSS&at_campaign=rss" target="_blank">BBC فارسی</a></div>
+  </div></section>
 
-  <section class="spread blue" id="s3">
-    <div class="spread__inner two-col">
-      <div>
-        <div class="number">03</div>
-        <h2 class="story-title">نسخه‌ی تازه‌ی استریمر Walmart با Gemini و Matter، یک نشانه از AI شدن ابزارهای ارزان‌قیمت است</h2>
-        <div class="story-copy">
-          <p>در صفحه‌ی اول The Verge، یک جعبه‌ی استریم نسبتاً ارزان با Gemini و Matter-over-Thread دیده می‌شود. این شاید خبر عظیم تاریخی نباشد، اما actionable است: AI دارد از flagshipها می‌ریزد به سخت‌افزارهای معمولی و ارزان.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از The Verge</strong>
-          <p>«The biggest updates ... include the addition of Google Gemini support ... and Matter-over-Thread compatibility so the streamer can control other smart home devices.»</p>
-        </div>
-        <div class="story-copy">
-          <p>برداشت کوتاه: وقتی حتی یک box شصت‌دلاری هم با voice AI و smart-home hub بودن فروخته می‌شود، direction بازار کاملاً روشن است.</p>
-        </div>
-        <div class="source-row">
-          <a href="https://www.theverge.com/tech/912334/walmart-onn-4k-pro-streamer-google-tv-gemini-matter-thread-smart-home" target="_blank" rel="noopener noreferrer">The Verge</a>
-        </div>
-      </div>
-      <div class="art art--landscape"><img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/walmart_onn.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200" alt="Walmart Onn streamer"></div>
+  <section class="spread blue" id="s3"><div class="spread__inner story">
+    <h2 class="story-title">استریمر جدید Walmart با Gemini و Matter نشان می‌دهد AI دارد به سخت‌افزار ارزان‌قیمت می‌ریزد</h2>
+    <div class="story-image"><img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/walmart_onn.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200" alt="Walmart Onn streamer"></div>
+    <div class="story-copy">
+      <p>در صفحه‌ی اول The Verge، یک جعبه‌ی استریم نسبتاً ارزان با Gemini و Matter-over-Thread دیده می‌شود. این خبر شاید عظیم نباشد، اما actionable است: AI دارد از flagshipها می‌ریزد به ابزارهای معمولی و ارزان.</p>
+      <div class="quote-box"><strong>نقل از The Verge</strong><p>«The biggest updates ... include the addition of Google Gemini support ... and Matter-over-Thread compatibility.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://www.theverge.com/tech/912334/walmart-onn-4k-pro-streamer-google-tv-gemini-matter-thread-smart-home" target="_blank">The Verge</a></div>
+  </div></section>
 
-  <section class="spread cream" id="s4">
-    <div class="spread__inner one-plus-art">
-      <div>
-        <h2 class="story-title">خرید Globalstar توسط آمازون، فقط یک معامله‌ی فضایی نیست؛ shortcut به direct-to-device است</h2>
-        <div class="story-copy">
-          <p>آمازون با خرید Globalstar فقط ماهواره نمی‌خرد؛ به طیف و مجوزهایی نزدیک می‌شود که برای ارتباط مستقیم با دستگاه‌ها حیاتی‌اند. این به taste تو می‌خورد چون هم weird science دارد، هم به آینده‌ی connectivity و حتی اپل و آیفون وصل است.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از WIRED</strong>
-          <p>«Amazon will also control Globalstar's licensed access to wireless spectrums that enable signals to be sent from a satellite direct-to-device.»</p>
-        </div>
-        <div class="source-row">
-          <a href="https://www.wired.com/story/why-amazon-is-buying-globalstar-and-what-it-means-for-your-iphone/" target="_blank" rel="noopener noreferrer">WIRED</a>
-        </div>
-      </div>
-      <div class="art art--landscape"><img src="https://media.wired.com/photos/69dec7e359777aa741957731/191:100/w_1280,c_limit/Amazon-Bought-GlobalStar-Gear-2270825370.jpg" alt="Amazon Globalstar"></div>
+  <section class="spread cream" id="s4"><div class="spread__inner story">
+    <h2 class="story-title">خرید Globalstar توسط آمازون، فقط یک معامله‌ی فضایی نیست؛ shortcut به direct-to-device است</h2>
+    <div class="story-image"><img src="https://media.wired.com/photos/69dec7e359777aa741957731/191:100/w_1280,c_limit/Amazon-Bought-GlobalStar-Gear-2270825370.jpg" alt="Amazon Globalstar"></div>
+    <div class="story-copy">
+      <p>آمازون با خرید Globalstar فقط ماهواره نمی‌خرد؛ به طیف و مجوزهایی نزدیک می‌شود که برای ارتباط مستقیم با دستگاه‌ها حیاتی‌اند. این خبر هم weird science دارد، هم به آینده‌ی connectivity و آیفون وصل است.</p>
+      <div class="quote-box"><strong>نقل از WIRED</strong><p>«Amazon will also control Globalstar's licensed access to wireless spectrums that enable signals to be sent from a satellite direct-to-device.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://www.wired.com/story/why-amazon-is-buying-globalstar-and-what-it-means-for-your-iphone/" target="_blank">WIRED</a></div>
+  </div></section>
 
-  <section class="spread green" id="s5">
-    <div class="spread__inner two-col">
-      <div>
-        <div class="number">05</div>
-        <h2 class="story-title">بالاخره قرار است مصرف برق دیتاسنترها اندازه گرفته شود</h2>
-        <div class="story-copy">
-          <p>دولت آمریکا می‌خواهد از دیتاسنترها درباره‌ی مصرف برق‌شان ارزیابی اجباری بگیرد. این خبر برای کسی با علاقه‌ی تو مهم است چون داستان AI فقط مدل و benchmark نیست؛ برق، آلودگی، شبکه و هزینه‌ی واقعی هم هست.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از WIRED</strong>
-          <p>«This survey would be the first effort of its type to collect basic information about data centers.»</p>
-        </div>
-        <div class="story-copy">
-          <p>برداشت کوتاه: هرچه data centers سیاسی‌تر شوند، فهمِ AI بدون زیرساخت ناقص‌تر می‌شود.</p>
-        </div>
-        <div class="source-row">
-          <a href="https://www.wired.com/story/the-us-government-to-ask-data-centers-how-much-power-they-use/" target="_blank" rel="noopener noreferrer">WIRED</a>
-        </div>
-      </div>
-      <div class="art art--landscape"><img src="https://media.wired.com/photos/69debc4d4d898774bc720bdd/191:100/w_1280,c_limit/GettyImages-2249152852.jpg" alt="Data centers power"></div>
+  <section class="spread green" id="s5"><div class="spread__inner story">
+    <h2 class="story-title">مصرف برق دیتاسنترها بالاخره قرار است با داده‌ی رسمی اندازه گرفته شود</h2>
+    <div class="story-image"><img src="https://media.wired.com/photos/69debc4d4d898774bc720bdd/191:100/w_1280,c_limit/GettyImages-2249152852.jpg" alt="Data centers power"></div>
+    <div class="story-copy">
+      <p>دولت آمریکا می‌خواهد از دیتاسنترها درباره‌ی مصرف برق‌شان ارزیابی اجباری بگیرد. این خبر مهم است چون داستان AI فقط مدل و benchmark نیست؛ برق، شبکه و هزینه‌ی واقعی هم هست.</p>
+      <div class="quote-box"><strong>نقل از WIRED</strong><p>«This survey would be the first effort of its type to collect basic information about data centers.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://www.wired.com/story/the-us-government-to-ask-data-centers-how-much-power-they-use/" target="_blank">WIRED</a></div>
+  </div></section>
 
-  <section class="spread midnight" id="s6">
-    <div class="spread__inner two-col">
-      <div>
-        <h2 class="story-title">Anthropic و عددِ ۸۰۰ میلیارد دلاری: بازار AI هنوز از نفس نیفتاده</h2>
-        <div class="story-copy">
-          <p>سرمایه‌گذارها ظاهراً حاضر بوده‌اند Anthropic را با ارزش‌گذاری ۸۰۰ میلیارد دلار یا بیشتر funding کنند، اما شرکت فعلاً عجله‌ای ندارد. این مستقیماً dev tool نیست، اما روی اکوسیستمی که هر روز می‌بینی اثر دارد: قیمت compute، شدت رقابت، lock-in و سرعت عرضه‌ی ابزارها.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از TechCrunch</strong>
-          <p>«VCs have been offering the OpenAI competitor a preemptive funding round that would value the company at $800 billion or more.»</p>
-        </div>
-        <div class="source-row">
-          <a href="https://techcrunch.com/2026/04/15/anthropic-shrugs-off-vc-funding-offers-valuing-it-at-800b-for-now/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
-        </div>
-      </div>
-      <div class="panel story-copy">
-        <p>برداشت کوتاه: وقتی ۸۰۰ میلیارد دلار هنوز نتواند کسی را فوراً سر میز بکشاند، یعنی تب AI فقط بزرگ نیست؛ هنوز هم بی‌قرار است.</p>
-      </div>
+  <section class="spread night" id="s6"><div class="spread__inner story">
+    <h2 class="story-title">Anthropic و عددِ ۸۰۰ میلیارد دلاری: بازار AI هنوز از نفس نیفتاده</h2>
+    <div class="story-copy">
+      <p>سرمایه‌گذارها ظاهراً حاضر بوده‌اند Anthropic را با ارزش‌گذاری ۸۰۰ میلیارد دلار یا بیشتر funding کنند، اما شرکت فعلاً عجله‌ای ندارد. این مستقیم dev tool نیست، اما روی اکوسیستمی که می‌بینی اثر دارد.</p>
+      <div class="quote-box"><strong>نقل از TechCrunch</strong><p>«VCs have been offering the OpenAI competitor a preemptive funding round that would value the company at $800 billion or more.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://techcrunch.com/2026/04/15/anthropic-shrugs-off-vc-funding-offers-valuing-it-at-800b-for-now/" target="_blank">TechCrunch</a></div>
+  </div></section>
 
-  <section class="spread blue" id="s7">
-    <div class="spread__inner two-col">
-      <div class="text-card dropcap story-copy">
-        <div class="flag flag--watch">weird science / practical research</div>
-        <h2 class="story-title">Gemini Robotics-ER 1.6 از آن خبرهای رباتیکی است که فقط demo نیست</h2>
-        <p>DeepMind می‌گوید مدل جدید Robotics-ER 1.6 روی embodied reasoning، spatial understanding، task planning و حتی instrument reading بهتر شده است. این از آن مدل خبرهاست که اگر به آینده‌ی agentها علاقه داری، باید جدی بگیری؛ چون نشان می‌دهد AI کم‌کم از صفحه‌ی نمایش به سمت جهان فیزیکی هل داده می‌شود.</p>
-        <div class="quote-box">
-          <strong>نقل از DeepMind</strong>
-          <p>«This model specializes in reasoning capabilities critical for robotics, including visual and spatial understanding, task planning and success detection.»</p>
-        </div>
-        <div class="source-row">
-          <a href="https://deepmind.google/blog/gemini-robotics-er-1-6/" target="_blank" rel="noopener noreferrer">DeepMind</a>
-        </div>
-      </div>
-      <div class="text-card story-copy">
-        <p>برداشت کوتاه: این هنوز ربات خانگیِ آماده‌ی خرید نیست، اما یکی از تمیزترین سیگنال‌هاست که «عامل هوشمند» قرار نیست برای همیشه داخل chat box زندانی بماند.</p>
-      </div>
+  <section class="spread blue" id="s7"><div class="spread__inner story">
+    <h2 class="story-title">Gemini Robotics-ER 1.6 از آن خبرهای رباتیکی است که فقط demo نیست</h2>
+    <div class="story-copy">
+      <p>DeepMind می‌گوید مدل جدید Robotics-ER 1.6 روی embodied reasoning، spatial understanding، task planning و حتی instrument reading بهتر شده است. اگر به آینده‌ی agentها علاقه داری، این خبر باید جدی گرفته شود.</p>
+      <div class="quote-box"><strong>نقل از DeepMind</strong><p>«This model specializes in reasoning capabilities critical for robotics, including visual and spatial understanding, task planning and success detection.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://deepmind.google/blog/gemini-robotics-er-1-6/" target="_blank">DeepMind</a></div>
+  </div></section>
 
-  <section class="spread rose" id="s8">
-    <div class="spread__inner one-plus-art">
-      <div>
-        <h2 class="story-title">سوئد از تلاش برای حمله‌ی مخرب به یک نیروگاه می‌گوید؛ داستان سایبر هر روز فیزیکی‌تر می‌شود</h2>
-        <div class="story-copy">
-          <p>گزارش TechCrunch می‌گوید هکرهای وابسته به روسیه برای اخلال در عملیات یک نیروگاه حرارتی در سوئد تلاش کرده‌اند اما به خاطر مکانیزم‌های حفاظتی ناکام مانده‌اند. این دیگر صرفاً نشت داده یا مزاحمت سایبری نیست؛ به لایه‌ی انرژی و خدمات عمومی وصل می‌شود.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از TechCrunch</strong>
-          <p>«Pro-Russian groups that once carried out denial-of-service attacks are now attempting destructive cyber attacks against organizations in Europe.»</p>
-        </div>
-        <div class="source-row">
-          <a href="https://techcrunch.com/2026/04/15/sweden-blames-russian-hackers-for-attempting-destructive-cyberattack-on-thermal-plant/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
-        </div>
-      </div>
-      <div class="art art--landscape"><img src="https://techcrunch.com/wp-content/uploads/2026/04/sweden-thermal-1369158256.jpg?resize=1200,799" alt="Sweden thermal plant cyberattack"></div>
+  <section class="spread rose" id="s8"><div class="spread__inner story">
+    <h2 class="story-title">سوئد از تلاش برای حمله‌ی مخرب به یک نیروگاه می‌گوید؛ داستان سایبر هر روز فیزیکی‌تر می‌شود</h2>
+    <div class="story-image"><img src="https://techcrunch.com/wp-content/uploads/2026/04/sweden-thermal-1369158256.jpg?resize=1200,799" alt="Sweden thermal plant cyberattack"></div>
+    <div class="story-copy">
+      <p>گزارش TechCrunch می‌گوید هکرهای وابسته به روسیه برای اخلال در عملیات یک نیروگاه حرارتی در سوئد تلاش کرده‌اند اما به خاطر مکانیزم‌های حفاظتی ناکام مانده‌اند.</p>
+      <div class="quote-box"><strong>نقل از TechCrunch</strong><p>«Pro-Russian groups that once carried out denial-of-service attacks are now attempting destructive cyber attacks against organizations in Europe.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://techcrunch.com/2026/04/15/sweden-blames-russian-hackers-for-attempting-destructive-cyberattack-on-thermal-plant/" target="_blank">TechCrunch</a></div>
+  </div></section>
 
-  <section class="spread cream" id="s9">
-    <div class="spread__inner two-col">
-      <div>
-        <h2 class="story-title">BBC فارسی درباره‌ی محاصره‌ی دریایی چه می‌گوید؟ فشار اقتصادی معمولاً کار می‌کند، راه‌حل سیاسی نه لزوماً</h2>
-        <div class="story-copy">
-          <p>در صفحه‌ی اول BBC فارسی، یک جمع‌بندی تاریخی از محاصره‌های دریایی آمده که از آلمان و ژاپن تا غزه و یمن را کنار هم می‌گذارد. این یکی برای mood کلی روز مهم است، چون نشان می‌دهد خیلی از ابزارهای فشار، از نظر اقتصادی مؤثرند اما الزاماً به راه‌حل سیاسی پایدار ختم نمی‌شوند.</p>
-        </div>
-        <div class="quote-box">
-          <strong>نقل از BBC فارسی</strong>
-          <p>«تجربه تاریخی نشان می‌دهد این ابزار معمولاً در اعمال فشار اقتصادی موفق است، اما به‌ندرت به تنهایی به راه‌حل سیاسی پایدار منتهی می‌شود.»</p>
-        </div>
-        <div class="source-row">
-          <a href="https://www.bbc.com/persian/articles/cgrlzk1lk19o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC فارسی</a>
-        </div>
-      </div>
-      <div class="art art--landscape"><img src="https://ichef.bbci.co.uk/news/1024/branded_persian/2d08/live/0091fa90-38bc-11f1-9d5c-8ba507d7dbde.jpg" alt="BBC Persian blockade analysis"></div>
+  <section class="spread cream" id="s9"><div class="spread__inner story">
+    <h2 class="story-title">BBC فارسی درباره‌ی محاصره‌ی دریایی چه می‌گوید؟ فشار اقتصادی معمولاً کار می‌کند، راه‌حل سیاسی نه لزوماً</h2>
+    <div class="story-image"><img src="https://ichef.bbci.co.uk/news/1024/branded_persian/2d08/live/0091fa90-38bc-11f1-9d5c-8ba507d7dbde.jpg" alt="BBC Persian blockade analysis"></div>
+    <div class="story-copy">
+      <p>BBC فارسی یک جمع‌بندی تاریخی از محاصره‌های دریایی منتشر کرده که از آلمان و ژاپن تا غزه و یمن را کنار هم می‌گذارد.</p>
+      <div class="quote-box"><strong>نقل از BBC فارسی</strong><p>«تجربه تاریخی نشان می‌دهد این ابزار معمولاً در اعمال فشار اقتصادی موفق است، اما به‌ندرت به تنهایی به راه‌حل سیاسی پایدار منتهی می‌شود.»</p></div>
     </div>
-  </section>
+    <div class="source-row"><a href="https://www.bbc.com/persian/articles/cgrlzk1lk19o?at_medium=RSS&at_campaign=rss" target="_blank">BBC فارسی</a></div>
+  </div></section>
 
-  <section class="spread blue" id="enews">
-    <div class="spread__inner">
-      <div class="eyebrow">ENews / compact section</div>
-      <h2 class="story-title">بخش سرگرمی امروز</h2>
-      <div class="two-col">
-        <div class="text-card story-copy">
-          <div class="flag flag--watch">TV / streaming</div>
-          <h3 class="story-title" style="font-size:clamp(34px,4vw,56px)">فصل سوم Good Omens با یک پایان ۹۰ دقیقه‌ای به خط آخر نزدیک می‌شود</h3>
-          <p>Ars Technica از تریلر فصل سوم Good Omens نوشته و می‌گوید این مجموعه با یک قسمت نهایی ۹۰ دقیقه‌ای جمع می‌شود. برای بخش ENews، این از آن خبرهایی است که هم برای مخاطب عام جذاب است، هم برای کسی که روند streamerها و جمع‌کردن franchiseها را دنبال می‌کند.</p>
-          <div class="quote-box">
-            <strong>نقل از Ars Technica</strong>
-            <p>«Prime Video's supernatural comedy will end with a special 90-minute final episode.»</p>
-          </div>
-          <div class="source-row">
-            <a href="https://arstechnica.com/culture/2026/04/good-omens-s3-trailer-sets-up-a-blessed-conclusion/" target="_blank" rel="noopener noreferrer">Ars Technica</a>
-          </div>
-        </div>
-        <div class="art art--landscape"><img src="https://cdn.arstechnica.net/wp-content/uploads/2026/04/goodomens-1152x648.jpg" alt="Good Omens season 3"></div>
-      </div>
-      <div style="height:28px"></div>
-      <div class="two-col">
-        <div class="text-card story-copy">
-          <div class="flag flag--watch">Gaming / culture</div>
-          <h3 class="story-title" style="font-size:clamp(34px,4vw,56px)">ورود Black Cat به Marvel Rivals بوی power creep می‌دهد</h3>
-          <p>PC Gamer نوشته کیت Black Cat آن‌قدر شلوغ و قوی به‌نظر می‌رسد که بعضی‌ها شوخی‌وار گفته‌اند «Welcome back Thanos». برای ENews، این همان جنس خبر گیمی است که ارزش اضافه‌کردن دارد: نه صرفاً patch note، بلکه نشانه‌ای از اینکه live-serviceها چطور برای حفظ هیجان به مرز اغراق نزدیک می‌شوند.</p>
-          <div class="quote-box">
-            <strong>نقل از PC Gamer</strong>
-            <p>«One thing is clear: Black Cat's kit is busted.»</p>
-          </div>
-          <div class="source-row">
-            <a href="https://www.pcgamer.com/games/third-person-shooter/close-enough-welcome-back-thanos-marvel-rivals-power-creep-reaches-new-levels-of-busted-with-black-cat/" target="_blank" rel="noopener noreferrer">PC Gamer</a>
-          </div>
-        </div>
-        <div class="art art--landscape"><img src="https://cdn.mos.cms.futurecdn.net/nMroi8yijhmZd7ZyxWuP5h-1280-80.png" alt="Marvel Rivals Black Cat"></div>
-      </div>
-    </div>
-  </section>
+  <section class="spread blue" id="enews"><div class="spread__inner story">
+    <div class="eyebrow">ENews</div>
+    <h2 class="section-title">بخش کامل سرگرمی امروز</h2>
 
-  <section class="spread painting" id="painting">
-    <div class="spread__inner one-plus-art">
-      <div>
-        <div class="eyebrow">Today’s Painting</div>
-        <h2 class="story-title">تابلوی شب پرستاره از ونسان ون‌گوگ، ۱۸۸۹</h2>
-        <div class="story-copy">
-          <p>داستان این تابلو از یک آسمان شاعرانه‌ی ساده شروع نمی‌شود؛ از دوره‌ای بحرانی در زندگی ون‌گوگ شروع می‌شود. او بعد از فروپاشی روانی در آرل، داوطلبانه وارد آسایشگاه سن-رمی شد و شب پرستاره را همان‌جا کشید.</p>
-          <p>دهکده‌ای که در تابلو می‌بینیم واقعی نیست و بیشتر از حافظه و تخیل آمده است. برای همین، اثر بیشتر از آنکه یک view باشد، تصویرِ ذهنِ ناآرامِ نقاش است. اهمیت تاریخی‌اش هم در همین است: نشان داد نقاشی می‌تواند جهان درون را به اندازه‌ی جهان بیرون باقدرت نشان دهد.</p>
-        </div>
-        <div class="source-row">
-          <a href="https://en.wikipedia.org/wiki/The_Starry_Night" target="_blank" rel="noopener noreferrer">Wikipedia</a>
-        </div>
+    <div class="subsection">
+      <h3 class="story-title">📰 اخبار سرگرمی</h3>
+      <div class="story-image"><img src="https://cdn.arstechnica.net/wp-content/uploads/2026/04/goodomens-1152x648.jpg" alt="Good Omens season 3"></div>
+      <div class="story-copy">
+        <p>مهم‌ترین خبر سرگرمی امروز از میان منابع در دسترس، به فصل سوم Good Omens برمی‌گردد. Ars Technica می‌گوید این سریال با یک قسمت نهایی ۹۰ دقیقه‌ای جمع می‌شود و Prime Video دارد روی پایان‌بندیِ event-like حساب می‌کند.</p>
+        <div class="quote-box"><strong>نقل از Ars Technica</strong><p>«The 90-minute finale for Good Omens drops on Prime Video on May 13, 2026.»</p></div>
       </div>
-      <div class="art art--portrait"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Van%20Gogh%20-%20Starry%20Night%20-%20Google%20Art%20Project.jpg" alt="The Starry Night"></div>
+      <div class="source-row"><a href="https://arstechnica.com/culture/2026/04/good-omens-s3-trailer-sets-up-a-blessed-conclusion/" target="_blank">Ars Technica</a></div>
     </div>
-  </section>
 
-  <section class="spread music" id="music">
-    <div class="spread__inner two-col">
-      <div>
-        <div class="eyebrow">Today’s Music</div>
-        <h2 class="story-title">قطعه‌ی Teardrop از Massive Attack</h2>
-        <div class="story-copy">
-          <p>برای شماره‌ای که بین AI، زیرساخت، حریم خصوصی و اضطراب‌های آینده حرکت می‌کند، Teardrop انتخاب تمیزی است. آهنگ هم سرد است، هم انسانی؛ هم آینده‌دار حس می‌شود، هم شکننده.</p>
-        </div>
-        <div class="source-row">
-          <a href="https://open.spotify.com/search/Teardrop%20Massive%20Attack" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a href="https://music.apple.com/us/search?term=Teardrop%20Massive%20Attack" target="_blank" rel="noopener noreferrer">Apple Music</a>
-        </div>
+    <div class="subsection">
+      <h3 class="story-title">🎬 فیلم‌های جدید این هفته</h3>
+      <div class="story-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Clapperboard.jpg" alt="Clapperboard"></div>
+      <div class="story-copy">
+        <p>این بخش امروز به‌جای وانمودکردن به data کاملِ ناقص، به‌صورت watchlist آمده: در دیتای box office موجود، اسم‌های داغِ بهار ۲۰۲۶ شامل The Super Mario Galaxy Movie و Project Hail Mary دیده می‌شوند؛ یعنی بازار فعلاً زیر نفوذ franchise و sci-fi event movie است.</p>
+        <p class="note">یادداشت: برای نسخه‌ی بعدی، این بخش را با posterهای واقعی از IMP Awards و trailer link کامل می‌کنم.</p>
       </div>
-      <div class="text-card story-copy">
-        <p>برداشت کوتاه: mood این شماره را اگر بخواهم در یک قطعه خلاصه کنم، همین است — آرامشِ نازک روی لبه‌ی چیزی بزرگ‌تر.</p>
-      </div>
+      <div class="source-row"><a href="https://www.boxofficemojo.com/weekend/" target="_blank">Box Office Mojo</a></div>
     </div>
-  </section>
+
+    <div class="subsection">
+      <h3 class="story-title">💰 باکس آفیس</h3>
+      <div class="story-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Clapperboard.jpg" alt="Box office"></div>
+      <div class="story-copy">
+        <p>طبق داده‌ی Box Office Mojo برای آخرهفته‌ی Apr 10–12، صدر جدول با حدود <strong>$120.6M</strong> در اختیار <strong>The Super Mario Galaxy Movie</strong> بوده است. نکته‌ی مهم نه فقط عدد، بلکه dominance یک IP بسیار شناخته‌شده روی بازار بهار ۲۰۲۶ است.</p>
+        <div class="quote-box"><strong>نقل از Box Office Mojo</strong><p>«Apr 10-12 ... $120,654,046 ... #1 Release: The Super Mario Galaxy Movie.»</p></div>
+      </div>
+      <div class="source-row"><a href="https://www.boxofficemojo.com/weekend/2026W15/" target="_blank">Box Office Mojo</a></div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="story-title">📺 سریال‌های جدید هفته</h3>
+      <div class="story-image"><img src="https://cdn.arstechnica.net/wp-content/uploads/2026/04/goodomens-1152x648.jpg" alt="TV releases"></div>
+      <div class="story-copy">
+        <p>سریال شاخص این هفته در منابعی که بررسی کردم، Good Omens S3 است؛ نه فقط به خاطر fandom، بلکه چون streamerها عاشق این مدل «final special» شده‌اند: پایان کوتاه‌تر، event-style، و مناسب برای push تبلیغاتی.</p>
+      </div>
+      <div class="source-row"><a href="https://arstechnica.com/culture/2026/04/good-omens-s3-trailer-sets-up-a-blessed-conclusion/" target="_blank">Ars Technica</a></div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="story-title">🎌 انیمه</h3>
+      <div class="story-image"><img src="https://cdn.mos.cms.futurecdn.net/nMroi8yijhmZd7ZyxWuP5h-1280-80.png" alt="Anime/gaming culture"></div>
+      <div class="story-copy">
+        <p>برای بخش انیمه امروز، سیگنال جالب از خود PC Gamer می‌آید؛ جایی که Marvel Rivals به سمت چیزی توصیف شده که حتی خودشان آن را «moving anime experience» می‌نامند. یعنی aesthetic و انرژی انیمه‌ای هنوز یکی از زبان‌های اصلیِ سرگرمی آنلاین و live-service باقی مانده است.</p>
+        <p class="note">این یکی بیشتر culture signal است تا خبر کلاسیک انیمه.</p>
+      </div>
+      <div class="source-row"><a href="https://www.pcgamer.com/rss/" target="_blank">PC Gamer RSS</a></div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="story-title">⭐ سلبریتی‌ها</h3>
+      <div class="story-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Old%20television.jpg" alt="Celebrity section"></div>
+      <div class="story-copy">
+        <p>بخش سلبریتی امروز عمداً کوتاه نگه داشته شده، چون در منابع بررسی‌شده، خبر بزرگ و تمیزی که ارزش برجسته‌سازی داشته باشد بیرون نزده بود. برای Morning Edition تو، من ترجیح می‌دهم این بخش را خالی‌تر بگذارم تا با شایعه و filler پُر نشود.</p>
+      </div>
+      <div class="source-row"><a href="https://arstechnica.com/culture/2026/04/good-omens-s3-trailer-sets-up-a-blessed-conclusion/" target="_blank">Source base</a></div>
+    </div>
+  </div></section>
+
+  <section class="spread purple" id="painting"><div class="spread__inner story">
+    <div class="eyebrow">Today’s Painting</div>
+    <h2 class="story-title">تابلوی شب پرستاره از ونسان ون‌گوگ، ۱۸۸۹</h2>
+    <div class="story-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Van%20Gogh%20-%20Starry%20Night%20-%20Google%20Art%20Project.jpg" alt="The Starry Night"></div>
+    <div class="story-copy">
+      <p>این اثر از یک شب شاعرانه‌ی ساده شروع نمی‌شود؛ از دوره‌ای بحرانی در زندگی ون‌گوگ شروع می‌شود. او بعد از فروپاشی روانی در آرل، داوطلبانه وارد آسایشگاه سن-رمی شد و شب پرستاره را همان‌جا کشید.</p>
+      <p>دهکده‌ای که در تابلو می‌بینیم واقعی نیست و بیشتر از حافظه و تخیل آمده است؛ برای همین، اثر بیشتر از آنکه یک منظره باشد، تصویری از ذهن ناآرامِ نقاش است.</p>
+    </div>
+    <div class="source-row"><a href="https://en.wikipedia.org/wiki/The_Starry_Night" target="_blank">Wikipedia</a></div>
+  </div></section>
+
+  <section class="spread mint" id="music"><div class="spread__inner story">
+    <div class="eyebrow">Today’s Music</div>
+    <h2 class="story-title">قطعه‌ی Teardrop از Massive Attack</h2>
+    <div class="story-copy"><p>برای شماره‌ای که بین AI، زیرساخت، حریم خصوصی و اضطراب‌های آینده حرکت می‌کند، Teardrop انتخاب تمیزی است: هم سرد، هم انسانی، هم معلق.</p></div>
+    <div class="source-row"><a href="https://open.spotify.com/search/Teardrop%20Massive%20Attack" target="_blank">Spotify</a><a href="https://music.apple.com/us/search?term=Teardrop%20Massive%20Attack" target="_blank">Apple Music</a></div>
+  </div></section>
 </body>
 </html>
