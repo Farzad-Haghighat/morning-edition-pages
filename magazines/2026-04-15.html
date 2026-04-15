@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morning Edition — 2026-04-15</title>
+  <meta name="description" content="Morning Edition: curated daily magazine for Farzad — AI tools, dev tools, privacy, weird science, and actionable stories.">
+  <meta name="theme-color" content="#f4efe7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4efe7;
+      --ink: #111111;
+      --muted: #57534e;
+      --line: rgba(17,17,17,.12);
+      --red: #8f1d1d;
+      --rose: #f2d6d6;
+      --night: #0d1321;
+      --night-2: #121a2c;
+      --gold: #d4af37;
+      --sage: #dce5d6;
+      --terminal: #08140f;
+      --terminal-green: #97ff8a;
+      --blueprint: #dcecff;
+      --lavender: #ece5ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.85;
+      font-size: 22px;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .issue-nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; gap: 16px; align-items: center; justify-content: space-between;
+      padding: 16px 22px; backdrop-filter: blur(14px);
+      background: rgba(244,239,231,.82); border-bottom: 1px solid var(--line);
+      font-size: 18px;
+    }
+    .issue-nav__left, .issue-nav__right { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+    .issue-nav a { text-decoration: none; opacity: .9; }
+    .issue-nav a:hover { text-decoration: underline; }
+    .spread {
+      min-height: 100vh;
+      padding: 56px clamp(20px, 5vw, 72px);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      align-items: center;
+    }
+    .spread__inner {
+      width: min(1400px, 100%);
+      margin: 0 auto;
+    }
+    .kicker {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      opacity: .7;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .display {
+      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
+      font-size: clamp(58px, 11vw, 160px);
+      line-height: .95;
+      margin: 0 0 18px;
+      letter-spacing: -.02em;
+    }
+    .deck {
+      font-size: clamp(24px, 2.4vw, 38px);
+      max-width: 32ch;
+      margin: 0 0 28px;
+    }
+    .meta {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      font-size: 18px; color: var(--muted);
+    }
+    .lede-grid, .split-grid, .terminal-grid, .stat-grid {
+      display: grid; gap: 28px; align-items: start;
+    }
+    .lede-grid { grid-template-columns: 1.25fr .9fr; }
+    .split-grid { grid-template-columns: 1fr 1fr; }
+    .terminal-grid { grid-template-columns: .95fr 1.05fr; }
+    .stat-grid { grid-template-columns: .8fr 1.2fr; }
+    .story-title {
+      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
+      font-size: clamp(42px, 5vw, 84px);
+      line-height: 1.05;
+      margin: 0 0 18px;
+    }
+    .story-copy p, .story-copy li {
+      font-size: clamp(22px, 2.1vw, 32px);
+      margin: 0 0 18px;
+    }
+    .source-row {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px;
+      font-size: 20px; font-weight: 700;
+    }
+    .source-row a {
+      text-decoration: none;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 2px;
+    }
+    .flag {
+      display: inline-flex; align-items: center; gap: 10px;
+      border-radius: 999px; padding: 10px 18px; font-weight: 800;
+      font-size: 18px; margin-bottom: 18px;
+    }
+    .flag--direct { background: #111; color: #fff; }
+    .flag--watch { background: #fff; color: #111; border: 2px solid #111; }
+    .number {
+      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
+      font-size: clamp(72px, 18vw, 240px);
+      line-height: .85; opacity: .14;
+    }
+    .media-frame {
+      border: 2px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      overflow: hidden;
+    }
+    .media-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .hero { background: linear-gradient(180deg, #f7f2eb 0%, #eadfce 100%); }
+    .hero .lede-grid { align-items: end; }
+    .hero-art {
+      aspect-ratio: 4 / 5; border: 2px solid rgba(17,17,17,.12); overflow: hidden;
+      box-shadow: 0 30px 60px rgba(62,47,30,.12);
+    }
+    .hero-art img { width: 100%; height: 100%; object-fit: cover; }
+    .midnight { background: linear-gradient(180deg, var(--night) 0%, #05070d 100%); color: #f6f7fb; }
+    .midnight .meta { color: rgba(246,247,251,.7); }
+    .midnight .story-copy p { color: rgba(246,247,251,.92); }
+    .rose-stamp { background: linear-gradient(180deg, #fff8f8 0%, var(--rose) 100%); }
+    .stamp {
+      border: 4px double var(--red); color: var(--red); display: inline-block; padding: 10px 18px;
+      transform: rotate(-6deg); font-size: 24px; font-weight: 800; margin-bottom: 18px;
+    }
+    .terminal { background: linear-gradient(180deg, #0c1712 0%, var(--terminal) 100%); color: var(--terminal-green); }
+    .terminal .story-title, .terminal .kicker, .terminal .number { color: #d5ffd0; }
+    .terminal-window {
+      border: 2px solid rgba(151,255,138,.35); background: rgba(0,0,0,.28); padding: 24px;
+      box-shadow: inset 0 0 0 1px rgba(151,255,138,.08);
+    }
+    .terminal-window p, .terminal-window li { color: var(--terminal-green); }
+    .terminal-prompt::before { content: '> '; opacity: .8; }
+    .academic { background: linear-gradient(180deg, #fffdf7 0%, #f4ede0 100%); }
+    .dropcap p:first-of-type::first-letter {
+      float: right; font-family: 'Lalezar', 'Vazirmatn', sans-serif;
+      font-size: 4.5em; line-height: .8; padding-left: 14px; padding-top: 6px;
+    }
+    .blueprint { background: linear-gradient(180deg, #edf5ff 0%, var(--blueprint) 100%); }
+    .big-stat { background: linear-gradient(180deg, #171717 0%, #070707 100%); color: white; }
+    .big-stat .stat {
+      font-family: 'Lalezar', 'Vazirmatn', sans-serif;
+      font-size: clamp(92px, 20vw, 280px); line-height: .8; color: var(--gold);
+      margin: 0;
+    }
+    .big-stat .story-copy p { color: rgba(255,255,255,.92); }
+    .sidebar-note {
+      border-top: 2px solid currentColor; padding-top: 18px; margin-top: 24px; font-size: 20px;
+      opacity: .86;
+    }
+    .painting { background: linear-gradient(180deg, #f2edff 0%, var(--lavender) 100%); }
+    .painting-image {
+      aspect-ratio: 1 / 1; overflow: hidden; border: 2px solid rgba(17,17,17,.14);
+      box-shadow: 0 24px 50px rgba(44,29,77,.16);
+    }
+    .music { background: linear-gradient(180deg, #eef7e9 0%, var(--sage) 100%); }
+    .caption-small { font-size: 18px; color: var(--muted); margin-top: 12px; }
+    .toc {
+      display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 26px;
+      font-size: 24px;
+    }
+    .toc a {
+      text-decoration: none; padding-bottom: 6px; border-bottom: 1px solid rgba(17,17,17,.18);
+    }
+    @media (max-width: 980px) {
+      .lede-grid, .split-grid, .terminal-grid, .stat-grid { grid-template-columns: 1fr; }
+      .spread { min-height: auto; }
+      .display { font-size: clamp(48px, 16vw, 100px); }
+      .story-title { font-size: clamp(38px, 11vw, 74px); }
+      body { font-size: 20px; }
+      .toc { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="issue-nav">
+    <div class="issue-nav__left">
+      <strong>Morning Edition</strong>
+      <span>۱۵ آوریل ۲۰۲۶</span>
+    </div>
+    <div class="issue-nav__right">
+      <a href="#s1">ادوبی</a>
+      <a href="#s2">حریم خصوصی</a>
+      <a href="#s3">ماهواره</a>
+      <a href="#s4">دیتاسنتر</a>
+      <a href="#s5">انتروپیک</a>
+      <a href="#s6">امنیت</a>
+      <a href="#painting">نقاشی</a>
+      <a href="#music">موسیقی</a>
+    </div>
+  </nav>
+
+  <section class="spread hero" id="cover">
+    <div class="spread__inner lede-grid">
+      <div>
+        <div class="kicker">Morning Edition / curated for Farzad</div>
+        <h1 class="display">صبح‌نامه‌ای برای<br>ذهنِ فنی</h1>
+        <p class="deck">گلچینی از Hacker News، صفحه‌ی اول The Verge، صفحه‌ی اول BBC فارسی و چند منبع مکمل — با تمرکز روی ابزارهای AI، نرم‌افزار خلاقه، ابزارهای توسعه، حریم خصوصی، علم عجیب و خبرهایی که واقعاً به کارت می‌آیند.</p>
+        <div class="meta">
+          <span>سردبیری: Techno</span>
+          <span>•</span>
+          <span>هیچ فونت ریزی در کار نیست</span>
+          <span>•</span>
+          <span>هر داستان یک spread جدا</span>
+        </div>
+        <div class="toc">
+          <a href="#s1">۰۱ — دستیار Firefly ادوبی</a>
+          <a href="#s2">۰۲ — هشدار حریم خصوصی در BBC فارسی</a>
+          <a href="#s3">۰۳ — خرید Globalstar توسط آمازون</a>
+          <a href="#s4">۰۴ — برق دیتاسنترها زیر ذره‌بین</a>
+          <a href="#s5">۰۵ — تبِ ۸۰۰ میلیارد دلاری Anthropic</a>
+          <a href="#s6">۰۶ — حمله‌ی مخرب به زیرساخت انرژی</a>
+          <a href="#painting">۰۷ — نقاشی روز</a>
+          <a href="#music">۰۸ — موسیقی روز</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="https://techcrunch.com/wp-content/uploads/2026/04/Adobe-Firefly-Innovations-Visual-Asset.jpeg?resize=1200,675" alt="Adobe Firefly">
+      </div>
+    </div>
+  </section>
+
+  <section class="spread midnight" id="s1">
+    <div class="spread__inner split-grid">
+      <div>
+        <div class="number">01</div>
+        <div class="flag flag--direct">مستقیم به درد تو می‌خورد</div>
+        <h2 class="story-title">ادوبی می‌خواهد از ابزار خلاقه، یک همکار نیمه‌خودکار بسازد</h2>
+        <div class="story-copy">
+          <p>ادوبی دستیار Firefly را به سمت چیزی برده که از یک «مولد تصویر» ساده خیلی جلوتر است. حرف اصلی این نیست که یک prompt می‌دهی و چیزی تحویل می‌گیری؛ حرف این است که نرم‌افزار می‌تواند بین Photoshop، Premiere، Lightroom و بقیه‌ی Creative Cloud رفت‌وآمد کند، چند گام پشت‌سرهم را هماهنگ کند و بخشی از workflow را خودش بچرخاند.</p>
+          <p>این داستان دقیقاً به سلیقه‌ی تو می‌خورد چون به آینده‌ی <strong>creative software</strong> و <strong>AI tools</strong> وصل است: نرم‌افزار دارد از «ابزار» به «عامل اجرایی» تغییر شکل می‌دهد. اگر اهل ساخت، تدوین، طراحی یا حتی prototyping باشی، این مدلِ چندمرحله‌ای از هر feature نمایشی مهم‌تر است.</p>
+          <p>برداشت Techno: رقابت اصلی حالا بین ادوبی، Canva و Figma دیگر روی یک دکمه‌ی جادویی نیست؛ روی این است که کدام‌یکی زودتر friction واقعی کار را حذف می‌کند.</p>
+        </div>
+        <div class="source-row">
+          <a href="https://techcrunch.com/2026/04/15/adobes-new-firefly-ai-assistant-can-use-creative-cloud-apps-to-complete-tasks/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
+        </div>
+      </div>
+      <div class="media-frame">
+        <img src="https://techcrunch.com/wp-content/uploads/2026/04/Adobe-Firefly-Innovations-Visual-Asset.jpeg?resize=1200,675" alt="Adobe Firefly visual">
+      </div>
+    </div>
+  </section>
+
+  <section class="spread rose-stamp" id="s2">
+    <div class="spread__inner split-grid">
+      <div>
+        <span class="stamp">PRIVACY / APPLY TO YOU</span>
+        <h2 class="story-title">گزارش BBC فارسی از ترسِ بازرسی گوشی‌ها، فقط خبر نیست؛ هشدارِ عملی است</h2>
+        <div class="story-copy">
+          <p>در صفحه‌ی اول BBC فارسی، گزارشی درباره‌ی نگرانی کاربران ایرانی از ایست‌های بازرسی، کنترل تلفن همراه و نقض حریم شخصی دیده می‌شود. این از آن خبرهایی است که مستقیم به زندگی روزمره وصل می‌شود، نه فقط به سیاست.</p>
+          <p>برای تو، مهم‌ترین بخش ماجرا «actionable» بودنش است: هر دوره‌ای که بازرسی موبایل، فشار روانی محلی و اختلال اینترنت بیشتر می‌شود، بهداشت دیجیتال دیگر کار لوکس نیست. قفل‌صفحه‌ی قوی، حذف یا مخفی‌سازی محتوای حساس، به‌روز بودن backup و کم‌کردن داده‌ی قابل‌مشاهده روی خود دستگاه، ناگهان خیلی مهم‌تر می‌شود.</p>
+          <p>برداشت Techno: این یکی را باید در دسته‌ی «همین امروز بهش فکر کن» گذاشت، نه در دسته‌ی «بعداً می‌خوانم».</p>
+        </div>
+        <div class="sidebar-note">پرچم کاربردی: این خبر از همه‌ی خبرهای امروز مستقیم‌تر به خودت مربوط است.</div>
+        <div class="source-row">
+          <a href="https://www.bbc.com/persian/articles/c86eeppz6e3o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener noreferrer">BBC فارسی</a>
+        </div>
+      </div>
+      <div class="media-frame">
+        <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/95f5/live/a3e592c0-381b-11f1-87a9-4117efae0ff4.jpg" alt="BBC Persian privacy story">
+      </div>
+    </div>
+  </section>
+
+  <section class="spread blueprint" id="s3">
+    <div class="spread__inner lede-grid">
+      <div>
+        <div class="kicker">زیرساخت / فضا / device connectivity</div>
+        <h2 class="story-title">خرید Globalstar توسط آمازون، یک معامله‌ی فضایی صرف نیست؛ یک میان‌بر برای direct-to-device است</h2>
+        <div class="story-copy">
+          <p>آمازون برای خرید Globalstar بیش از ۱۱ میلیارد دلار می‌پردازد و با این کار فقط چند ماهواره نمی‌خرد؛ در عمل به طیف، مجوز و زیرساختی نزدیک می‌شود که برای ارتباط مستقیم ماهواره با دستگاه‌ها کلیدی است.</p>
+          <p>این خبر به سلیقه‌ی تو می‌خورد چون هم weird-science-ish است، هم بسیار عملی: آینده‌ی اینترنت، emergency connectivity و حتی لجستیک دارد بیشتر به چند بازیگر فضایی بزرگ گره می‌خورد. برای اپل هم مهم است، چون Globalstar پشت برخی قابلیت‌های اضطراری آیفون و اپل واچ بوده.</p>
+          <p>برداشت Techno: این داستان از آن مدل خبرهاست که پنج سال بعد می‌فهمیم چرا باید همان روز اول جدی گرفته می‌شد.</p>
+        </div>
+        <div class="source-row">
+          <a href="https://www.wired.com/story/why-amazon-is-buying-globalstar-and-what-it-means-for-your-iphone/" target="_blank" rel="noopener noreferrer">WIRED</a>
+        </div>
+      </div>
+      <div class="media-frame">
+        <img src="https://media.wired.com/photos/69dec7e359777aa741957731/191:100/w_1280,c_limit/Amazon-Bought-GlobalStar-Gear-2270825370.jpg" alt="Amazon Globalstar">
+      </div>
+    </div>
+  </section>
+
+  <section class="spread academic" id="s4">
+    <div class="spread__inner split-grid">
+      <div class="dropcap story-copy">
+        <div class="kicker">Energy / AI infrastructure / policy</div>
+        <h2 class="story-title">برقِ AI finally دارد حساب‌وکتاب رسمی پیدا می‌کند</h2>
+        <p>دولت آمریکا می‌خواهد با یک ارزیابی اجباری، مصرف برق دیتاسنترها را اندازه بگیرد. این خبر شاید اداری به‌نظر برسد، اما در واقع یکی از خبرهای بنیادی روز است: همه درباره‌ی عطش انرژی AI حرف می‌زنند، اما داده‌ی رسمیِ سراسری هنوز کم بوده است.</p>
+        <p>برای کسی با taste تو، نکته‌ی مهم اینجاست که AI فقط مدل و benchmark نیست؛ هزینه‌ی واقعی‌اش روی برق، شبکه، قبض و زیرساخت شهرها هم می‌افتد. این داستان لایه‌ی پنهانِ تب AI را نشان می‌دهد: هر query ارزان به‌نظر می‌رسد، اما جمعِ آن‌ها ممکن است بسیار گران تمام شود.</p>
+        <p>برداشت Techno: این خبر را باید در دسته‌ی «چیزهایی که درباره‌ی AI matureترت می‌کنند» گذاشت.</p>
+        <div class="source-row">
+          <a href="https://www.wired.com/story/the-us-government-to-ask-data-centers-how-much-power-they-use/" target="_blank" rel="noopener noreferrer">WIRED</a>
+        </div>
+      </div>
+      <div class="media-frame">
+        <img src="https://media.wired.com/photos/69debc4d4d898774bc720bdd/191:100/w_1280,c_limit/GettyImages-2249152852.jpg" alt="Data centers power">
+      </div>
+    </div>
+  </section>
+
+  <section class="spread terminal" id="s5">
+    <div class="spread__inner terminal-grid">
+      <div>
+        <div class="number">05</div>
+        <h2 class="story-title">ترمینالِ تب AI: ۸۰۰ میلیارد دلار هنوز هم برای بعضی‌ها کافی نیست</h2>
+        <div class="terminal-window story-copy">
+          <p class="terminal-prompt">VCs آماده بوده‌اند Anthropic را با ارزش‌گذاری ۸۰۰ میلیارد دلار یا بالاتر funding کنند.</p>
+          <p class="terminal-prompt">Anthropic فعلاً نه نگفته، فقط عجله‌ای هم برای بله‌گفتن نشان نداده.</p>
+          <p class="terminal-prompt">پیام ضمنی: بازار هنوز برای چند نامِ بزرگِ AI almost irrationally hot است.</p>
+          <p class="terminal-prompt">چرا برای تو مهم است؟ چون این valuation frenzy روی همه‌چیز اثر می‌گذارد: از قیمت compute و شدت رقابت ابزارها تا شتاب agentها و dev toolsی که هر روز می‌بینی.</p>
+          <p class="terminal-prompt">برداشت Techno: وقتی شرکتی می‌تواند به round ۸۰۰ میلیاردی هم «فعلاً نه» بگوید، یعنی AI هنوز در phase عادی‌شدن نیست؛ هنوز در phase سرگیجه است.</p>
+        </div>
+        <div class="source-row">
+          <a href="https://techcrunch.com/2026/04/15/anthropic-shrugs-off-vc-funding-offers-valuing-it-at-800b-for-now/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
+        </div>
+      </div>
+      <div>
+        <div class="flag flag--watch">برای رصد اکوسیستم AI مهم است</div>
+        <div class="story-copy">
+          <p>این یکی شاید امروز مستقیماً به کارت نیاید، اما pulse بازار را خوب نشان می‌دهد. هرچه سرمایه‌گذاری بزرگ‌تر شود، فشار برای monetization، scale و lock-in هم بیشتر می‌شود. یعنی ابزارهای AI که تو با آن‌ها کار می‌کنی هم آرام‌آرام تحت همین منطق شکل می‌گیرند.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread big-stat" id="s6">
+    <div class="spread__inner stat-grid">
+      <div>
+        <p class="stat">۱</p>
+        <div class="caption-small" style="color:rgba(255,255,255,.72)">نیروگاه، یک حمله‌ی ناموفق، یک یادآوری بزرگ</div>
+      </div>
+      <div>
+        <div class="kicker">critical infrastructure / cyber</div>
+        <h2 class="story-title">سوئد می‌گوید هکرهای وابسته به روسیه برای حمله‌ی مخرب به یک نیروگاه حرارتی تلاش کرده‌اند</h2>
+        <div class="story-copy">
+          <p>این خبر از جنس «باز هم یک هک دیگر» نیست. فرقش این است که بحث روی خرابکاری واقعی در زیرساخت انرژی است، نه صرفاً نشت داده یا DDoS. مقام‌های سوئدی می‌گویند مکانیزم حفاظتی داخلی جلوی حمله را گرفته، اما خودِ تلاش، علامت مهمی است.</p>
+          <p>اگر به dev tools و security علاقه داری، این از آن خبرهایی است که باید جدی گرفته شود: جنگ سایبری دارد بیشتر و بیشتر به لایه‌ی فیزیکی جهان دست می‌زند. خاموشی، اختلال در گرمایش و آسیب به خدمات عمومی، دیگر سناریوی دور نیست.</p>
+          <p>برداشت Techno: امنیت، وقتی به انرژی وصل می‌شود، دیگر فقط کار تیم SOC نیست؛ می‌شود داستان زندگی واقعی مردم.</p>
+        </div>
+        <div class="source-row">
+          <a href="https://techcrunch.com/2026/04/15/sweden-blames-russian-hackers-for-attempting-destructive-cyberattack-on-thermal-plant/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread painting" id="painting">
+    <div class="spread__inner split-grid">
+      <div>
+        <div class="kicker">Today’s Painting</div>
+        <h2 class="story-title">تابلوی شب پرستاره از ونسان ون‌گوگ، ۱۸۸۹</h2>
+        <div class="story-copy">
+          <p>داستان این اثر از یک شب شاعرانه‌ی ساده شروع نمی‌شود؛ از دوره‌ای بحرانی در زندگی ون‌گوگ شروع می‌شود. او بعد از فروپاشی روانی در آرل و ماجرای آسیب‌زدن به گوش خودش، داوطلبانه وارد آسایشگاه سن-رمی شد و شب پرستاره را همان‌جا کشید.</p>
+          <p>اما چیزی که در تابلو می‌بینیم فقط منظره‌ی واقعی بیرون پنجره نیست. دهکده‌ای که دیده می‌شود بیشتر از حافظه و تخیل آمده، و سروِ تیره مثل پلی بین زمین و آسمان ایستاده است. به همین دلیل، این تابلو بیشتر شبیه تصویری از ذهن ناآرامِ هنرمند است تا ثبت صرف یک منظره.</p>
+          <p>اهمیت تاریخی اثر هم از همین‌جا می‌آید: شب پرستاره نشان داد نقاشی می‌تواند جهان درون را به همان قدرتِ جهان بیرون نشان بدهد. برای دوره‌ای مثل امروز که همه‌چیز بین داده، اضطراب و شتاب گیر کرده، این تابلو هنوز عجیـب تازه است.</p>
+        </div>
+        <div class="source-row">
+          <a href="https://en.wikipedia.org/wiki/The_Starry_Night" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+        </div>
+      </div>
+      <div>
+        <div class="painting-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Van%20Gogh%20-%20Starry%20Night%20-%20Google%20Art%20Project.jpg" alt="The Starry Night">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread music" id="music">
+    <div class="spread__inner split-grid">
+      <div>
+        <div class="kicker">Today’s Music</div>
+        <h2 class="story-title">قطعه‌ی Teardrop از Massive Attack</h2>
+        <div class="story-copy">
+          <p>برای شماره‌ای که بین AI، زیرساخت، حریم خصوصی و اضطراب‌های آینده حرکت می‌کند، Teardrop انتخاب درستی است. این قطعه هم سرد است، هم انسانی؛ هم تکنولوژیک حس می‌شود، هم لطیف. beat منظم و وکال شناور آن حسِ معلق‌بودن در جهانی را می‌سازد که خیلی سریع عوض می‌شود اما لزوماً آرام‌تر نمی‌شود.</p>
+          <p>اگر قرار باشد موسیقیِ این شماره یک mood کلی داشته باشد، همین است: آرامشِ نازک روی لبه‌ی چیزی بزرگ‌تر.</p>
+        </div>
+        <div class="source-row">
+          <a href="https://open.spotify.com/search/Teardrop%20Massive%20Attack" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://music.apple.com/us/search?term=Teardrop%20Massive%20Attack" target="_blank" rel="noopener noreferrer">Apple Music</a>
+        </div>
+      </div>
+      <div class="story-copy">
+        <div class="flag flag--watch">mood pairing</div>
+        <p>اگر بعداً این را اتومات کنیم، می‌شود موسیقی روز را هم با mood issue هماهنگ کرد: مثلاً «terminal issue»، «science issue»، «quiet panic issue»، یا «maker issue».</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
