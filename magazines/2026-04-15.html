@@ -112,12 +112,21 @@
     .midnight { background: linear-gradient(180deg, var(--night) 0%, #0b0f18 100%); color: var(--night-ink); }
     .midnight .panel { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); box-shadow:none; }
     .midnight .meta, .midnight .caption, .midnight .source-note { color: rgba(245,247,251,.72); }
-    .rose { background: linear-gradient(180deg, #fff7f6 0%, var(--rose) 100%); }
-    .blue { background: linear-gradient(180deg, #f2f7fc 0%, var(--blue) 100%); }
-    .green { background: linear-gradient(180deg, #eff7ef 0%, var(--green) 100%); }
-    .cream { background: linear-gradient(180deg, #faf7f2 0%, var(--cream) 100%); }
+    .rose { background: linear-gradient(180deg, #fffaf9 0%, #f6dfdb 100%); color: #161616; }
+    .blue { background: linear-gradient(180deg, #f5f9ff 0%, #dfeaf8 100%); color: #161616; }
+    .green { background: linear-gradient(180deg, #f3faf3 0%, #dcebdc 100%); color: #161616; }
+    .cream { background: linear-gradient(180deg, #fcfaf6 0%, #eee3d2 100%); color: #161616; }
+    .painting { background: linear-gradient(180deg, #f6f1ff 0%, #e5dcfb 100%); color: #161616; }
+    .music { background: linear-gradient(180deg, #f3f9ef 0%, #dcead5 100%); color: #161616; }
+    .rose .story-title, .blue .story-title, .green .story-title, .cream .story-title, .painting .story-title, .music .story-title {
+      color: #141414;
+    }
+    .rose .story-copy p, .blue .story-copy p, .green .story-copy p, .cream .story-copy p, .painting .story-copy p, .music .story-copy p,
+    .rose .story-copy li, .blue .story-copy li, .green .story-copy li, .cream .story-copy li, .painting .story-copy li, .music .story-copy li {
+      color: #222;
+    }
     .quote-box {
-      border-right: 5px solid currentColor; padding: 18px 20px; margin: 24px 0; background: rgba(255,255,255,.35);
+      border-right: 5px solid currentColor; padding: 18px 20px; margin: 24px 0; background: rgba(255,255,255,.62);
     }
     .quote-box strong { display:block; font-size:20px; margin-bottom:10px; opacity:.8; }
     .source-row {
@@ -136,8 +145,6 @@
       float: right; font-family: 'Lalezar', 'Vazirmatn', sans-serif; font-size: 4.2em; line-height: .8; padding-left: 12px; padding-top: 6px;
     }
     .music, .painting { background: linear-gradient(180deg, #f8f8f8 0%, #ececec 100%); }
-    .painting { background: linear-gradient(180deg, #f2ecfb 0%, #e6ddfa 100%); }
-    .music { background: linear-gradient(180deg, #eef6ea 0%, #ddebd7 100%); }
     @media (max-width: 980px) {
       body { font-size: 22px; }
       .hero-grid, .two-col, .one-plus-art { grid-template-columns: 1fr; }
